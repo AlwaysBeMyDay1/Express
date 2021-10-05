@@ -1,0 +1,42 @@
+extends ./config/base.pug
+
+
+block content
+    section#seeProfile
+        div.seeProfile_background
+            div.seeProfile_content_title
+                p#nickname #{user.nickname}님의 프로필 정보
+
+            div.seeProfile_content
+                div.profile_img
+                    div.profile_img_show
+                        img(src="../profile1.jpg")
+                    
+                    div.profile_img_edit
+                        a(href='') 편집
+                table.profile_table
+                    tr 
+                        th.type 별명
+                        td.content=user.nickname
+                    tr 
+                        th.type 성별
+                        if user.gender
+                            td.content=user.gender
+                        else 
+                            td.content #{없음}    
+                    tr 
+                        th.type 생일
+                        td.content=user.birthday 
+                    tr 
+                        th.type 이메일 주소
+                        td.content=user.email
+                    tr
+                        th.type 주요 운동
+                        td.content=user.mainSports   
+                div.profile_button
+                    div.profile_button_delete
+                        button.account_delete 계정 삭제
+                    div.profile_button_edit(onclick="location.href = '/'")
+                        button.account_edit 계정 편집
+                        
+                
